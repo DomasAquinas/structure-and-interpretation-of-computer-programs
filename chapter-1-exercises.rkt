@@ -193,3 +193,37 @@
 (cube-root-iter 2.0 10.0) ; -> 2.1545036...
 
 (cube 2.1545036) ; -> 10.00095...
+
+#|
+ | Exercise 1-9
+ |#
+
+; Case I:
+
+; (define (+ a b)
+;     (if (= a 0)
+;         b
+;         (inc (+ (dec a) b))))
+
+; (+ 3 2) expands to...
+; (+ 3 2)
+; (+ (+ 2 2) 1)
+; (+ (+ (+ 1 2) 1) 1)
+; (+ (+ (+ (+ 0 2) 1) 1) 1)
+; This is a recursive process.
+
+; Case II:
+
+; (define (+ a b)
+;     (if (= a 0)
+;         b
+;         (+ (dec a) (inc b))))
+
+; (+ 3 2) expands to...
+; (+ 3 2)
+; (+ 2 3)
+; (+ 1 4)
+; (+ 0 5)
+; This is an iterative process.
+
+
