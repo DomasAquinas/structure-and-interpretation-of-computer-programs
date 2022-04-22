@@ -1,9 +1,7 @@
-#lang racket
-
 #|
  | Structure and Interpretation of Computer Programs
  |
- | Exercises 1-1 to 1-5
+ | Exercises for Chapter 1
  |#
 
 #|
