@@ -339,4 +339,4 @@
 
 ; (define (f n) (A 0 n)) computes 2*n
 ; (define (g n) (A 1 n)) computes 2^n, n > 0
-; (define (h n) (A 2 n)) computes 2^2^... with n 2's, n > 0
+; (define (h n) (A 2 n)) computes 2↑↑n, n > 0
