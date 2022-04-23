@@ -51,7 +51,14 @@
 ; Statement 2: radius - primitive, evaluates to 10
 ; Statement 3: radius - primitive, evaluates to 10
 ; Statement 4: operator *, operands 10, 10, evaluates to 100
-; Statement 5: operator *, operands 3.14159, 100, evaluates to 314.159
+; Statement 5: operator *, operands 3.14159, 100, evaluates to 314.159a
+
+#|
+ | Exercise M1.3
+ |#
+
+(and #f (2))
+(or #t (2))
 
 #|
  | Exercise 1-1
