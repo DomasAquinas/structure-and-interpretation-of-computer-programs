@@ -9,25 +9,22 @@
  |#
 
 ; (* (+ 2 2)  5)
-; Statement 1: operator *, operands (+ 2 2), 5
-; Statement 2: operator +, operands 2, 2
+; Statement 1: operator +, operands 2, 2, evaluates to 4
+; Statement 2: operator *, operands 4, 5, evaluates to 20
 ; Result: 20 - correct!
 
 ;(* (+ 2 2) (5))
-; Statement 1: operator *, operands (+ 2 2), 5
-; Statement 2: operator +, operands 2, 2
-; Statement 3: operator 5, no operands - error! 5 is not an operator
+; Statement 1: operator +, operands 2, 2, evaluates to 4
+; Statement 2: operator 5, no operands - error! 5 is not an operator
 
 ; (*(+(2 2) 5))
-; Statement 1: operator *, operand (+(2 2) 5) - error! No second operand
-; Statement 2: operator +, operands (2 2), 5
-; Statement 3: operator 2, operand 2 - error! 2 is not an operator this is
+; Statement 1: operator 2, operand 2 - error! 2 is not an operator this is
 ;              evaluated first, so this is the error that Scheme identifies
 
 ;  (*(+ 2
 ;     2)5)
-; Statement 1: operator *, operands (+ 2 2), 5
-; Statement 2: operator +, operands 2, 2
+; Statement 2: operator +, operands 2, 2, evaluates to 4
+; Statement 1: operator *, operands 4, 5, evaluates to 20
 ; Result: 20 - correct!
 
 ; (5 * 4)
@@ -35,15 +32,26 @@
 ;              * is not a valid operand
 
 ; (5 * (2 + 2))
-; Statement 1: operator 5, operands *, (2 + 2) - error! 5 is not an operator,
-;              and * is not a valid operand
-; Statement 2: operator 2, operands +, 2 - error! 2 is not an operator, and
+; Statement 1: operator 2, operands +, 2 - error! 2 is not an operator, and
 ;              + is not a valid operand
 
 ; ((+ 2 3))
-; Statement 1: operator (+ 2 3), no operands
-; Statement 2: operator +, operands 2, 3
-; error! 5 is not an operator
+; Statement 1: operator +, operands 2, 3, evaluates to 5
+; Statement 2: operator 5, no operands - error! 5 is not an operator
+
+#|
+ | Exercise M1.2
+ |#
+
+; Evaluation of (* pi (* radius radius)) as in Section 1.1.2, assuming
+; the definitions given:
+;
+; (* pi (* radius radius))
+; Statement 1: pi - primitive, evaluates to 3.14159
+; Statement 2: radius - primitive, evaluates to 10
+; Statement 3: radius - primitive, evaluates to 10
+; Statement 4: operator *, operands 10, 10, evaluates to 100
+; Statement 5: operator *, operands 3.14159, 100, evaluates to 314.159
 
 #|
  | Exercise 1-1
