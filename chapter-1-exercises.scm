@@ -5,41 +5,82 @@
  |#
 
 #|
+ | Exercise M1.1
+ |#
+
+; (* (+ 2 2)  5)
+; Statement 1: operator *, operands (+ 2 2), 5
+; Statement 2: operator +, operands 2, 2
+; Result: 20 - correct!
+
+;(* (+ 2 2) (5))
+; Statement 1: operator *, operands (+ 2 2), 5
+; Statement 2: operator +, operands 2, 2
+; Statement 3: operator 5, no operands - error! 5 is not an operator
+
+; (*(+(2 2) 5))
+; Statement 1: operator *, operand (+(2 2) 5) - error! No second operand
+; Statement 2: operator +, operands (2 2), 5
+; Statement 3: operator 2, operand 2 - error! 2 is not an operator this is
+;              evaluated first, so this is the error that Scheme identifies
+
+;  (*(+ 2
+;     2)5)
+; Statement 1: operator *, operands (+ 2 2), 5
+; Statement 2: operator +, operands 2, 2
+; Result: 20 - correct!
+
+; (5 * 4)
+; Statement 1: operator 5, operands *, 4 - error! 5 is not an operator, and
+;              * is not a valid operand
+
+; (5 * (2 + 2))
+; Statement 1: operator 5, operands *, (2 + 2) - error! 5 is not an operator,
+;              and * is not a valid operand
+; Statement 2: operator 2, operands +, 2 - error! 2 is not an operator, and
+;              + is not a valid operand
+
+; ((+ 2 3))
+; Statement 1: operator (+ 2 3), no operands
+; Statement 2: operator +, operands 2, 3
+; error! 5 is not an operator
+
+#|
  | Exercise 1-1
  |#
 
- ; 10 -> 10
+; 10 -> 10
 
- ; (+ 5 3 4) -> 12
+; (+ 5 3 4) -> 12
 
- ; (- 9 1) -> 8
+; (- 9 1) -> 8
 
- ; (/ 6 2) -> 3
+; (/ 6 2) -> 3
 
- ; (+ (* 2 4) (- 4 6)) -> 6
+; (+ (* 2 4) (- 4 6)) -> 6
 
- ; (define a 3) -> _
+; (define a 3) -> _
 
- ; (define b (+ a 1)) -> _
+; (define b (+ a 1)) -> _
 
- ; (+ a b (* a b)) -> 19
+; (+ a b (* a b)) -> 19
 
- ; (= a b) -> #f
+; (= a b) -> #f
 
- ; (if (and (> b a) (< b (* a b)))
- ;     b
- ;     a) -> 4
+; (if (and (> b a) (< b (* a b)))
+;     b
+;     a) -> 4
 
- ; (cond ((= a 4) 6)
- ;       ((= b 4) (+ 6 7 a))
- ;       (else 25)) -> 16
+; (cond ((= a 4) 6)
+;       ((= b 4) (+ 6 7 a))
+;       (else 25)) -> 16
 
- ; (+ 2 (if (> b a) b a)) -> 6
+; (+ 2 (if (> b a) b a)) -> 6
 
- ; (* (cond ((> a b) a)
- ;          ((< a b) b)
- ;          (else -1))
- ;    (+ a 1)) -> 16
+; (* (cond ((> a b) a)
+;          ((< a b) b)
+;          (else -1))
+;    (+ a 1)) -> 16
 
 
 #|
@@ -247,29 +288,28 @@
          ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 3))))))))
          ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 2)))))))))
          ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 1 1))))))))))
-         ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (2))))))))))
-         ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (4)))))))))
-         ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (8))))))))
-         ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (16)))))))
-         ;    (A 0 (A 0 (A 0 (A 0 (A 0 (32))))))
-         ;    (A 0 (A 0 (A 0 (A 0 (64)))))
-         ;    (A 0 (A 0 (A 0 (128))))
-         ;    (A 0 (A 0 (256)))
-         ;    (A 0 (512))
-         ;    (1024)
+         ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 2)))))))))
+         ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 4))))))))
+         ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 8)))))))
+         ;    (A 0 (A 0 (A 0 (A 0 (A 0 (A 0 16))))))
+         ;    (A 0 (A 0 (A 0 (A 0 (A 0 32)))))
+         ;    (A 0 (A 0 (A 0 (A 0 64))))
+         ;    (A 0 (A 0 (A 0 128)))
+         ;    (A 0 (A 0 256))
+         ;    (A 0 512)
          ;    1024 - correct!
 
 (A 2 4) ; -> (A 2 4)
         ;    (A 1 (A 2 3))
         ;    (A 1 (A 1 (A 2 2)))
         ;    (A 1 (A 1 (A 1 (A 2 1))))
-        ;    (A 1 (A 1 (A 1 (2))))
+        ;    (A 1 (A 1 (A 1 2)))
         ;    (A 1 (A 1 (A 0 (A 1 1))))
-        ;    (A 1 (A 1 (4)))
+        ;    (A 1 (A 1 4))
         ;    (A 1 (A 0 (A 1 3)))
         ;    (A 1 (A 0 (A 0 (A 1 2))))
         ;    (A 1 (A 0 (A 0 (A 0 (A 1 1)))))
-        ;    (A 1 (16))
+        ;    (A 1 16)
         ;    = 2^16 = 65536 - correct!
 
 (A 3 3) ; -> (A 3 3)
